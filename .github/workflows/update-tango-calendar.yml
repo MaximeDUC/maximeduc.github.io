@@ -2,7 +2,7 @@ name: Update Tango Bourges Calendar
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 7 * * *'  # tous les jours à 7h UTC
   workflow_dispatch:
 
 jobs:
@@ -24,8 +24,7 @@ jobs:
         pip install requests beautifulsoup4 icalendar pytz
 
     - name: Run calendar generation
-      working-directory: ${{ github.workspace }}
-      run: python scripts/generate_tango_calendar.py
+      run: python script/generate_calendar.py
 
     - name: Commit and push updated ICS
       run: |
