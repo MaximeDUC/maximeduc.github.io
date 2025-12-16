@@ -24,7 +24,7 @@ jobs:
         pip install requests beautifulsoup4 icalendar pytz
 
     - name: Run calendar generation
-      run: python script/generate_calendar.py
+      run: python scripts/generate_calendar.py
 
     - name: Commit and push updated ICS
       run: |
