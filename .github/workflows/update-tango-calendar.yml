@@ -2,9 +2,8 @@ name: Update Tango Bourges Calendar
 
 on:
   schedule:
-    # Exécution tous les jours à 7h UTC (8h en Europe/Paris)
     - cron: '0 7 * * *'
-  workflow_dispatch: # permet de lancer manuellement
+  workflow_dispatch:
 
 jobs:
   update-calendar:
@@ -25,6 +24,7 @@ jobs:
         pip install requests beautifulsoup4 icalendar pytz
 
     - name: Run calendar generation
+      working-directory: ${{ github.workspace }}
       run: python scripts/generate_tango_calendar.py
 
     - name: Commit and push updated ICS
